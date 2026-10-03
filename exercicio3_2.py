@@ -1,3 +1,7 @@
+#Exercício 3.2)
+#A situação sugerida no exercício anterior é anômala e muito improvável de ocorrer. 
+#Um cenário mais plausível pode ser observado no código:
+
 from py_ecc.secp256k1 import secp256k1
 import secrets
 import hashlib
@@ -30,16 +34,24 @@ def assina_exercicio():
     print("c2=",c2)
     print("r2=",r2)
 
-# r1 = alfa1 - c1 * sk
-# r2 = alfa2 - c2 * sk
-# sk1 = (alfa1 - r1) / c1 
-# sk2 = (alfa2 - r2) / c2
-# sk1 = sk2
+#Saída:
 #2026-09-23 23:26:33.944888
 #c1= 17574914162398755519845112831929872204794539148722560696530206738132537352309
 #r1= 63702942183361152324349542819753229638304952016842535130701509206274961205200
 #c2= 114394360644184457979898691066605911217074940116193361021583715765885654775545
 #r2= 9307637531528717922211193650645999199252047737686460977332255290062646194943
+
+#Ao observar o código, percebe-se que os valores das sementes que geram
+#os alphas são próximas. Use esta informação para determinar a sk. (Observe
+#também que a sk foi gerada usando a biblioteca secrets que é mais segura que
+#a random)
+
+#Lógica usada para resolver o exercício:
+# r1 = alfa1 - c1 * sk
+# r2 = alfa2 - c2 * sk
+# sk1 = (alfa1 - r1) / c1 
+# sk2 = (alfa2 - r2) / c2
+# sk1 = sk2
 
 c1= 17574914162398755519845112831929872204794539148722560696530206738132537352309
 r1= 63702942183361152324349542819753229638304952016842535130701509206274961205200
